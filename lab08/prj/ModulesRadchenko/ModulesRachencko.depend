@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1644846337 source:d:\lab08\rachencko-maksim-kb-24\lab08\prj\modulesrachenckomain.cpp
+	<iostream>
+	<math.h>
+	<tgmath.h>
+	<windows.h>
+	<string>
+
