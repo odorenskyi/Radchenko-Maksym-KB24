@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1644863796 source:d:\lab08\radchenko-maksim-kb-24\lab08\prj\radchenko_task\main.cpp
+	<iostream>
+	<cmath>
+	<ModulesRadchenko.h>
+	<windows.h>
+
+1644846337 d:\lab08\radchenko-maksim-kb-24\lab08\prj\modulesradchenko.h
+	<iostream>
+	<cmath>
+	<string>
+	<windows.h>
+
