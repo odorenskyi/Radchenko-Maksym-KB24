@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1645814157 source:d:\bmtp\Radchenko-maksim-kb-24\lab09\prj\testdriver\main.cpp
+	"../ModulesRadchenko.h"
+
+1645813980 d:\bmtp\Radchenko-maksim-kb-24\lab09\prj\modulesRadchenko.h
+	<iostream>
+	<cmath>
+	<string>
+	<windows.h>
+
