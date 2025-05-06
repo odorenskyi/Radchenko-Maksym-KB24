@@ -1,1 +1,56 @@
-��
+#include <iostream>
+#include "Modules.h"
+
+using namespace std;
+
+int main() {
+    cout << "[DEBUG] Програма почалась\n";
+
+    // === Задача 9.1 ===
+    cout << "[DEBUG] Виконання задачі 9.1: Розрахунок населення\n";
+    int startPop = 1000000;
+    int births = 5000;
+    int deaths = 6000;
+    int immigrants = 3000;
+    int emigrants = 2000;
+
+    cout << "[DEBUG] Вхідні дані:\n";
+    cout << "    Початкове населення: " << startPop << "\n";
+    cout << "    Народження: " << births << ", Смерті: " << deaths << "\n";
+    cout << "    Іммігранти: " << immigrants << ", Емігранти: " << emigrants << "\n";
+
+    int population = calculatePopulationChange(startPop, births, deaths, immigrants, emigrants);
+    cout << "[DEBUG] Нове населення = " << population << endl << endl;
+
+    // === Задача 9.2 ===
+    cout << "[DEBUG] Виконання задачі 9.2: Мінімальна швидкість в балах Бофорта\n";
+    float windSpeeds[24] = {
+        1.0f, 2.5f, 3.5f, 4.5f, 5.5f, 2.0f, 3.0f, 2.2f,
+        1.8f, 0.5f, 6.5f, 7.0f, 4.0f, 2.7f, 2.1f, 3.6f,
+        4.8f, 1.0f, 1.5f, 0.8f, 1.1f, 5.5f, 6.0f, 7.0f
+    };
+
+    cout << "[DEBUG] Дані про швидкість вітру по годинах:\n";
+    for (int i = 0; i < 24; ++i) {
+        cout << "    Година " << i << ": " << windSpeeds[i] << " м/с\n";
+    }
+
+    int beaufort = minBeaufortScale(windSpeeds, 24);
+    cout << "[DEBUG] Мінімальне значення шкали Бофорта: " << beaufort << endl << endl;
+
+    // === Задача 9.3 ===
+    cout << "[DEBUG] Виконання задачі 9.3: Підрахунок бітів у числі\n";
+    unsigned int N = 255;
+
+    cout << "[DEBUG] Вхідне число: " << N << " (бінарно: ";
+    for (int i = 31; i >= 0; --i) {
+        cout << ((N >> i) & 1);
+    }
+    cout << ")\n";
+
+    int count = countBinaryZerosOrOnes(N);
+    cout << "[DEBUG] Кількість (нулів або одиниць): " << count << endl;
+
+    cout << "[DEBUG] Програма завершена\n";
+    return 0;
+}
