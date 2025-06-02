@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1648747112 source:d:\bmtp\radchenko-maksim-kb-24\lab10\prj\modulesradchenko\main.cpp
+    <iostream>
+    <math.h>
+    <tgmath.h>
+    <windows.h>
+    <fstream>
+    <cstring>
+    <vector>
+    <algorithm>
+    <ctime>
+    <bitset>
