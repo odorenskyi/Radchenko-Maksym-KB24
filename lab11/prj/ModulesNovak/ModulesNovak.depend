@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1716137495 source:d:\git hub\akhromov-viacheslav-ki23\lab11\prj\modulesakhromov\main.cpp
+1716137495 source:d:\git hub\novak-ki24\lab11\prj\modulesnovak\main.cpp
 	<iostream>
 	<fstream>
 	<vector>
