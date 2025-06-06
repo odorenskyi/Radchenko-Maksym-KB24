@@ -5,7 +5,7 @@
 
 using namespace std;
 
-struct MediaEntry {
+struct Record {
     string name;
     string type;
     string certificate;
@@ -13,27 +13,27 @@ struct MediaEntry {
     string founders;
     string registering_authority;
 };
-vector<MediaEntry> registry;
+vector<Record> registry;
 
 void search_by_name() {
     string search_name;
     cin.ignore();
-    cout << "Ââåä³òü íàçâó âèäàííÿ äëÿ ïîøóêó: ";
+    cout << "Ã‚Ã¢Ã¥Ã¤Â³Ã²Ã¼ Ã­Ã Ã§Ã¢Ã³ Ã¢Ã¨Ã¤Ã Ã­Ã­Ã¿ Ã¤Ã«Ã¿ Ã¯Ã®Ã¸Ã³ÃªÃ³: ";
     getline(cin, search_name);
 
-    auto it = find_if(registry.begin(), registry.end(), [&](const MediaEntry& entry) {
+    auto it = find_if(registry.begin(), registry.end(), [&](const Record& entry) {
         return entry.name == search_name;
     });
 
     if (it != registry.end()) {
-        cout << "Çàïèñ çíàéäåíî: " << endl;
-        cout << "Íàçâà: " << it->name << endl;
-        cout << "Òèï: " << it->type << endl;
-        cout << "Ñåðòèô³êàò: " << it->certificate << endl;
-        cout << "Äàòà ðåºñòðàö³¿: " << it->registration_date << endl;
-        cout << "Çàñíîâíèêè: " << it->founders << endl;
-        cout << "Îðãàí, ùî âèäàâ ñåðòèô³êàò: " << it->registering_authority << endl;
+        cout << "Ã‡Ã Ã¯Ã¨Ã± Ã§Ã­Ã Ã©Ã¤Ã¥Ã­Ã®: " << endl;
+        cout << "ÃÃ Ã§Ã¢Ã : " << it->name << endl;
+        cout << "Ã’Ã¨Ã¯: " << it->type << endl;
+        cout << "Ã‘Ã¥Ã°Ã²Ã¨Ã´Â³ÃªÃ Ã²: " << it->certificate << endl;
+        cout << "Ã„Ã Ã²Ã  Ã°Ã¥ÂºÃ±Ã²Ã°Ã Ã¶Â³Â¿: " << it->registration_date << endl;
+        cout << "Ã‡Ã Ã±Ã­Ã®Ã¢Ã­Ã¨ÃªÃ¨: " << it->founders << endl;
+        cout << "ÃŽÃ°Ã£Ã Ã­, Ã¹Ã® Ã¢Ã¨Ã¤Ã Ã¢ Ã±Ã¥Ã°Ã²Ã¨Ã´Â³ÃªÃ Ã²: " << it->registering_authority << endl;
     } else {
-        cout << "Çàïèñ íå çíàéäåíî." << endl;
+        cout << "Ã‡Ã Ã¯Ã¨Ã± Ã­Ã¥ Ã§Ã­Ã Ã©Ã¤Ã¥Ã­Ã®." << endl;
     }
 }
