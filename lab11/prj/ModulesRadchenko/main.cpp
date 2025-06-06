@@ -9,7 +9,7 @@
 
 using namespace std;
 
-struct MediaEntry {
+struct Record {
     string name;
     string type;
     string certificate;
@@ -18,49 +18,49 @@ struct MediaEntry {
     string registering_authority;
 };
 
-vector<MediaEntry> registry;
+vector<Record> registry;
 
 
-// Запис інформації до реєстру
+// Г‡Г ГЇГЁГ± ВіГ­ГґГ®Г°Г¬Г Г¶ВіВї Г¤Г® Г°ГҐВєГ±ГІГ°Гі
 void add_entry() {
 
-    MediaEntry entry;
+    Record entry;
     cin.ignore();
-    cout << "Назва видання: ";
+    cout << "ГЌГ Г§ГўГ  ГўГЁГ¤Г Г­Г­Гї: ";
     getline(cin, entry.name);
 
-    cout << "Вид видання: ";
+    cout << "Г‚ГЁГ¤ ГўГЁГ¤Г Г­Г­Гї: ";
     getline(cin, entry.type);
 
-    cout << "Серія та номер свідоцтва: ";
+    cout << "Г‘ГҐГ°ВіГї ГІГ  Г­Г®Г¬ГҐГ° Г±ГўВіГ¤Г®Г¶ГІГўГ : ";
     getline(cin, entry.certificate);
 
-    cout << "Дата реєстрації: ";
+    cout << "Г„Г ГІГ  Г°ГҐВєГ±ГІГ°Г Г¶ВіВї: ";
     getline(cin, entry.registration_date);
 
-    cout << "Відомості про засновників: ";
+    cout << "Г‚ВіГ¤Г®Г¬Г®Г±ГІВі ГЇГ°Г® Г§Г Г±Г­Г®ГўГ­ГЁГЄВіГў: ";
     getline(cin, entry.founders);
 
-    cout << "Орган, який здійснив реєстрацію: ";
+    cout << "ГЋГ°ГЈГ Г­, ГїГЄГЁГ© Г§Г¤ВіГ©Г±Г­ГЁГў Г°ГҐВєГ±ГІГ°Г Г¶ВіГѕ: ";
     getline(cin, entry.registering_authority);
 
     registry.push_back(entry);
 
-    cout << "Запис додано успішно." << endl;
+    cout << "Г‡Г ГЇГЁГ± Г¤Г®Г¤Г Г­Г® ГіГ±ГЇВіГёГ­Г®." << endl;
 }
 
-// Додавання інформації до реєстру
+// Г„Г®Г¤Г ГўГ Г­Г­Гї ВіГ­ГґГ®Г°Г¬Г Г¶ВіВї Г¤Г® Г°ГҐВєГ±ГІГ°Гі
 void load_registry(const string& filename) {
     ifstream file(filename);
     if (!file.is_open()) {
-        cerr << "Помилка при відкритті файлу: " << filename << endl;
+        cerr << "ГЏГ®Г¬ГЁГ«ГЄГ  ГЇГ°ГЁ ГўВіГ¤ГЄГ°ГЁГІГІВі ГґГ Г©Г«Гі: " << filename << endl;
         return;
     }
 
     string line;
     while (getline(file, line)) {
         stringstream ss(line);
-        MediaEntry entry;
+        Record entry;
 
         getline(ss, entry.name, ',');
         getline(ss, entry.type, ',');
@@ -72,33 +72,33 @@ void load_registry(const string& filename) {
         if (!entry.name.empty() && !entry.type.empty()) {
             registry.push_back(entry);
         } else {
-            cerr << "Невірний запис знайдено у файлі: " << line << endl;
+            cerr << "ГЌГҐГўВіГ°Г­ГЁГ© Г§Г ГЇГЁГ± Г§Г­Г Г©Г¤ГҐГ­Г® Гі ГґГ Г©Г«Ві: " << line << endl;
         }
     }
 
     file.close();
     if (file.bad()) {
-        cerr << "Помилка під час читання файлу: " << filename << endl;
+        cerr << "ГЏГ®Г¬ГЁГ«ГЄГ  ГЇВіГ¤ Г·Г Г± Г·ГЁГІГ Г­Г­Гї ГґГ Г©Г«Гі: " << filename << endl;
     }
 }
 
-// Вилучення інформації з реєстру
+// Г‚ГЁГ«ГіГ·ГҐГ­Г­Гї ВіГ­ГґГ®Г°Г¬Г Г¶ВіВї Г§ Г°ГҐВєГ±ГІГ°Гі
 void remove_entry() {
 
     string search_term;
     cin.ignore();
-    cout << "Введіть назву видання або серію та номер свідоцтва для вилучення: ";
+    cout << "Г‚ГўГҐГ¤ВіГІГј Г­Г Г§ГўГі ГўГЁГ¤Г Г­Г­Гї Г ГЎГ® Г±ГҐГ°ВіГѕ ГІГ  Г­Г®Г¬ГҐГ° Г±ГўВіГ¤Г®Г¶ГІГўГ  Г¤Г«Гї ГўГЁГ«ГіГ·ГҐГ­Г­Гї: ";
     getline(cin, search_term);
 
-    auto it = remove_if(registry.begin(), registry.end(), [&](const MediaEntry& entry) {
+    auto it = remove_if(registry.begin(), registry.end(), [&](const Record& entry) {
         return entry.name == search_term || entry.certificate == search_term;
     });
 
     if (it != registry.end()) {
         registry.erase(it, registry.end());
-        cout << "Запис вилучено успішно." << endl;
+        cout << "Г‡Г ГЇГЁГ± ГўГЁГ«ГіГ·ГҐГ­Г® ГіГ±ГЇВіГёГ­Г®." << endl;
     } else {
-        cout << "Запис не знайдено." << endl;
+        cout << "Г‡Г ГЇГЁГ± Г­ГҐ Г§Г­Г Г©Г¤ГҐГ­Г®." << endl;
     }
 }
 
