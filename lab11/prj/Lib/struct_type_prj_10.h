@@ -2,7 +2,7 @@
 #define STRUCT_TYPE_PRJ_10_H_INCLUDED
 #include <iostream>
 
-struct MediaEntry {
+struct Record {
     string name;
     string type;
     string certificate;
@@ -11,19 +11,5 @@ struct MediaEntry {
     string registering_authority;
 };
 
-struct Record {
-    string name;
-    string type;
-    string registration_number;
-    string registration_date;
-    string founders_info;
-    string registering_authority;
-};
-
-vector<Record> registry;
-vector<MediaEntry> registry;
-    char chief;
-    char regist;
-};
 
 #endif // STRUCT_TYPE_PRJ_10_H_INCLUDED
