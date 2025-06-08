@@ -2,6 +2,8 @@
 #define STRUCT_TYPE_PRJ_10_H_INCLUDED
 #include <iostream>
 
+using namespace std;
+
 struct Record {
     string name;
     string type;
